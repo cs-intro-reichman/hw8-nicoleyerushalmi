@@ -72,7 +72,7 @@
     public boolean removeFollowee(String name) {
         //// Replace the following statement with your code
         for(int i=0; i< follows.length; i++){
-            if (follows[i].equals(name)) {
+            if (follows[i] != null || follows[i].equals(name)) {
                 follows[i] = null;
                 return true;
             }
@@ -87,7 +87,7 @@
          int count =0;
          for(int i = 0; i< follows.length; i++){
             for(int j = 0; j < other.follows.length; j++){
-                if (follows[i].equals(other.follows[j])) {
+                if (follows[i] != null || follows[i].equals(other.follows[j])) {
                     count++;
                 }
             }
