@@ -128,13 +128,13 @@ public class Network {
     public String toString() {
        //// Replace the following statement with your code
        System.out.println("network: ");
+       String new_str ="Network: \n";
        for(int i = 0; i< userCount;i++){
-        System.out.print(users[i].getName() + "-> ");
+        new_str = new_str + users[i].getName() + "-> ";
         for(int j = 0; j<users[i].getfFollows().length; j++){
-            System.out.print(users[i].getfFollows()[j]);
+            new_str = new_str + users[i].getfFollows()[j];
         }
-        System.out.println();
        }
-       return null;
+       return new_str;
     }
 }
