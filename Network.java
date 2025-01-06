@@ -30,6 +30,7 @@ public class Network {
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
         //// Replace the following statement with your code
+        name = name.toLowerCase();
         for(int i=0; i<userCount; i++){
             if (users[i].getName().equals(name)) {
                 return users[i];
@@ -44,6 +45,7 @@ public class Network {
     *  Otherwise, creates a new user with the given name, adds the user to this network, and returns true. */
     public boolean addUser(String name) {
         //// Replace the following statement with your code
+        name = name.toLowerCase();
         for(int i =0; i< users.length; i++){
             if (users[i].equals(null)) {
                 if (getUser(name) == null) {
@@ -60,6 +62,8 @@ public class Network {
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
         //// Replace the following statement with your code
+        name1 = name1.toLowerCase();
+        name2 = name2.toLowerCase();
         if (getUser(name1) != null && getUser(name2) != null) {
             if (!getUser(name1).follows(name2) ) {
                 return(getUser(name1).addFollowee(name2));
@@ -73,6 +77,7 @@ public class Network {
      *  the user that has the maximal mutual number of followees as the user with the given name. */
     public String recommendWhoToFollow(String name) {
         //// Replace the following statement with your code
+        name = name.toLowerCase();
         int max = 0;
         User mostRecommendedUserToFollow = null;
         for(int i = 0;i< users.length; i++ ){
@@ -109,6 +114,7 @@ public class Network {
      *  the users in this network. Note: A name can appear 0 or 1 times in each list. */
     private int followeeCount(String name) {
         //// Replace the following statement with your code
+        name = name.toLowerCase();
         int count = 0; 
         for(int i = 0; i< userCount; i++){
             if (users[i].follows(name)) {
