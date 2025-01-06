@@ -92,9 +92,11 @@
          int count =0;
          for(int i = 0; i< follows.length; i++){
             for(int j = 0; j < other.follows.length; j++){
-                if (follows[i] != null && follows[i].toLowerCase().equals(other.follows[j])) {
+                if (other.follows[j] != null) {
+                if (follows[i] != null && follows[i].toLowerCase().equals(other.follows[j].toLowerCase())) {
                     count++;
                 }
+            }
             }
          }
         return count;
