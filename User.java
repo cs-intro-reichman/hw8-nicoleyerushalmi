@@ -58,7 +58,7 @@
         //// Replace the following statement with your code
         name = name.toLowerCase();
         for(int j = 0; j < follows.length; j++){
-            if (follows[j].equals(null)) {
+            if (follows[j] == null) {
                 if (!follows(name)) {
                     follows[j] = name;
                     return true;
