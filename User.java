@@ -61,6 +61,7 @@
             if (follows[j] == null) {
                 if (!follows(name)) {
                     follows[j] = name;
+                    fCount ++;
                     return true;
                 }
             }
@@ -77,6 +78,7 @@
         for(int i=0; i< follows.length; i++){
             if (follows[i] != null && follows[i].toLowerCase().equals(name)) {
                 follows[i] = null;
+                fCount --;
                 return true;
             }
         }
