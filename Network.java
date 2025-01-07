@@ -47,9 +47,9 @@ public class Network {
         //// Replace the following statement with your code
         //name = name.toLowerCase();
         for(int i =0; i< users.length; i++){
-            if (users[i] != null) {
+            if (this.users[i] != null) {
                 if (getUser(name) == null) {
-                    users[i] = new User(name);
+                    this.users[i] = new User(name);
                     return true;
                 }
             }
@@ -79,16 +79,16 @@ public class Network {
      *  the user that has the maximal mutual number of followees as the user with the given name. */
     public String recommendWhoToFollow(String name) {
         //// Replace the following statement with your code
-        name = name.toLowerCase();
+        //name = name.toLowerCase();
         int max = 0;
         User mostRecommendedUserToFollow = null;
         for(int i = 0;i< users.length; i++ ){
-            if (users[i] != null && users[i] == getUser(name)) {
+            if (this.users[i] != null && this.users[i] == getUser(name)) {
                 continue;
             }else{
             if(getUser(name).countMutual(users[i]) > max){
-                max = getUser(name).countMutual(users[i]);
-                mostRecommendedUserToFollow = users[i];
+                max = getUser(name).countMutual(this.users[i]);
+                mostRecommendedUserToFollow = this.users[i];
             }
         }
     }
@@ -103,10 +103,10 @@ public class Network {
         String name = null;
         for(int i = 0; i<userCount; i++){
             // go throw all the users
-            if(users[i] != null && followeeCount(users[i].getName()) > max){
+            if(this.users[i] != null && followeeCount(this.users[i].getName()) > max){
                 //return the number of times he appeared in everyone lists
-                max = followeeCount(users[i].getName());
-                name = users[i].getName();
+                max = followeeCount(this.users[i].getName());
+                name = this.users[i].getName();
             }
         }
         return name;
@@ -119,7 +119,7 @@ public class Network {
         name = name.toLowerCase();
         int count = 0; 
         for(int i = 0; i< users.length; i++){
-            if (users[i] != null && users[i].follows(name)) {
+            if (this.users[i] != null && this.users[i].follows(name)) {
                 count++;
             }
         }
@@ -130,11 +130,12 @@ public class Network {
     public String toString() {
        //// Replace the following statement with your code
        System.out.println("network: ");
-       String new_str ="Network: \n";
+       String new_str ="Network: ";
        for(int i = 0; i< userCount;i++){
-        new_str = new_str + users[i].getName() + "-> ";
-        for(int j = 0; j<users[i].getfFollows().length; j++){
-            new_str = new_str + users[i].getfFollows()[j];
+        new_str = new_str + this.users[i].getName() + "-> ";
+        for(int j = 0; j<this.users[i].getfFollows().length; j++){
+            if(this.users[i].getfFollows()[j] != null){
+            new_str = new_str +"/n" + this.users[i].getfFollows()[j];}
         }
        }
        return new_str;
