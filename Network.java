@@ -50,6 +50,7 @@ public class Network {
             if (this.users[i] != null) {
                 if (getUser(name) == null) {
                     this.users[i] = new User(name);
+                    userCount++;
                     return true;
                 }
             }
@@ -62,15 +63,17 @@ public class Network {
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
         //// Replace the following statement with your code
+        if (name1 != null && name2 != null) {
         name1 = name1.toLowerCase();
         name2 = name2.toLowerCase();
         User user1 = getUser(name1);
         User user2 = getUser(name2);
-        if (user1 != null && user2 != null) {
+        if (user1 != null && user2 != null && user1 != user2) {
             if (!user1.follows(name2) ) {
                 return(user1.addFollowee(name2));
             } 
-        }         
+        } 
+    }        
         
         return false;
     }
@@ -83,16 +86,22 @@ public class Network {
         int max = 0;
         User mostRecommendedUserToFollow = null;
         for(int i = 0;i< users.length; i++ ){
-            if (this.users[i] != null && this.users[i] == getUser(name)) {
+            if (this.users[i] != null ) {
+            if (this.users[i] == getUser(name)) {
                 continue;
             }else{
-            if(getUser(name).countMutual(users[i]) > max){
-                max = getUser(name).countMutual(this.users[i]);
+                User nameUser = getUser(name);
+            if(nameUser.countMutual(this.users[i]) > max){
+                max = nameUser.countMutual(this.users[i]);
                 mostRecommendedUserToFollow = this.users[i];
             }
         }
+        }
     }
+    if (mostRecommendedUserToFollow != null) {
         return mostRecommendedUserToFollow.getName();
+    }
+        return null;
     }
 
     /** Computes and returns the name of the most popular user in this network: 
