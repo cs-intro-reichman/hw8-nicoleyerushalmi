@@ -33,7 +33,7 @@ public class Network {
         name = name.toLowerCase();
         for(int i=0; i<userCount; i++){
             if (this.users[i].getName().toLowerCase().equals(name)) {
-                return users[i];
+                return this.users[i];
             }
         }
         return null;
