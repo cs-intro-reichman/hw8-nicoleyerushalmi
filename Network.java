@@ -32,7 +32,7 @@ public class Network {
         //// Replace the following statement with your code
         name = name.toLowerCase();
         for(int i=0; i<userCount; i++){
-            if (users[i].getName().equals(name)) {
+            if (users[i].getName().toLowerCase().equals(name)) {
                 return users[i];
             }
         }
