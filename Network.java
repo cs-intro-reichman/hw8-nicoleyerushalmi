@@ -64,9 +64,11 @@ public class Network {
         //// Replace the following statement with your code
         name1 = name1.toLowerCase();
         name2 = name2.toLowerCase();
-        if (getUser(name1) != null && getUser(name2) != null) {
-            if (!getUser(name1).follows(name2) ) {
-                return(getUser(name1).addFollowee(name2));
+        User user1 = getUser(name1);
+        User user2 = getUser(name2);
+        if (user1 != null && user2 != null) {
+            if (!user1.follows(name2) ) {
+                return(user1.addFollowee(name2));
             } 
         }         
         
@@ -81,7 +83,7 @@ public class Network {
         int max = 0;
         User mostRecommendedUserToFollow = null;
         for(int i = 0;i< users.length; i++ ){
-            if (users[i] == getUser(name)) {
+            if (users[i] != null && users[i] == getUser(name)) {
                 continue;
             }else{
             if(getUser(name).countMutual(users[i]) > max){
@@ -101,7 +103,7 @@ public class Network {
         String name = null;
         for(int i = 0; i<userCount; i++){
             // go throw all the users
-            if(followeeCount(users[i].getName()) > max){
+            if(users[i] != null && followeeCount(users[i].getName()) > max){
                 //return the number of times he appeared in everyone lists
                 max = followeeCount(users[i].getName());
                 name = users[i].getName();
@@ -116,8 +118,8 @@ public class Network {
         //// Replace the following statement with your code
         name = name.toLowerCase();
         int count = 0; 
-        for(int i = 0; i< userCount; i++){
-            if (users[i].follows(name)) {
+        for(int i = 0; i< users.length; i++){
+            if (users[i] != null && users[i].follows(name)) {
                 count++;
             }
         }
