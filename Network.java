@@ -47,7 +47,7 @@ public class Network {
         //// Replace the following statement with your code
         //name = name.toLowerCase();
         for(int i =0; i< users.length; i++){
-            if (users[i].equals(null)) {
+            if (users[i] != null) {
                 if (getUser(name) == null) {
                     users[i] = new User(name);
                     return true;
