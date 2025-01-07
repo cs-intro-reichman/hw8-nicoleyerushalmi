@@ -29,7 +29,7 @@ public class Network {
      *  If there is no such user, returns null.
      *  Notice that the method receives a String, and returns a User object. */
     public User getUser(String name) {
-        //// Replace the following statement with your code
+        //// Replace the following statement with your codee
         name = name.toLowerCase();
         for(int i=0; i<users.length; i++){
             if (this.users[i] != null && this.users[i].getName().toLowerCase().equals(name)) {
