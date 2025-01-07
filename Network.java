@@ -45,7 +45,7 @@ public class Network {
     *  Otherwise, creates a new user with the given name, adds the user to this network, and returns true. */
     public boolean addUser(String name) {
         //// Replace the following statement with your code
-        name = name.toLowerCase();
+        //name = name.toLowerCase();
         for(int i =0; i< users.length; i++){
             if (users[i].equals(null)) {
                 if (getUser(name) == null) {
