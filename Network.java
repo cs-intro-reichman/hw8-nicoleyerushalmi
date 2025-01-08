@@ -31,11 +31,13 @@ public class Network {
     public User getUser(String name) {
         //// Replace the following statement with your codee
         name = name.toLowerCase();
+        if (name != null) {
         for(int i=0; i<users.length; i++){
             if (this.users[i] != null && this.users[i].getName().toLowerCase().equals(name)) {
                 return this.users[i];
             }
         }
+    }
         return null;
     }
 
@@ -52,10 +54,13 @@ public class Network {
                 if (getUser(name) != null || userCount>=users.length) {
                     return false;
                 }
+                if(users[userCount] == null){
                 users[userCount] = new User(name);
                 userCount++;
+                return true;
+                }
             }
-            return true;
+           return false;
         }
 
     /** Makes the user with name1 follow the user with name2. If successful, returns true.
@@ -71,6 +76,7 @@ public class Network {
         if (user1 != null && user2 != null && user1 != user2) {
             if (!user1.follows(name2) ) {
                 return(user1.addFollowee(name2));
+
             } 
         } 
     }        
@@ -85,6 +91,7 @@ public class Network {
         //name = name.toLowerCase();
         int max = 0;
         User mostRecommendedUserToFollow = null;
+        if (name != null) {
         for(int i = 0;i< users.length; i++ ){
             if (this.users[i] != null ) {
             if (this.users[i] == getUser(name)) {
@@ -96,6 +103,7 @@ public class Network {
                 mostRecommendedUserToFollow = this.users[i];
             }
         }
+    }
         }
     }
     if (mostRecommendedUserToFollow != null) {
@@ -125,13 +133,15 @@ public class Network {
      *  the users in this network. Note: A name can appear 0 or 1 times in each list. */
     private int followeeCount(String name) {
         //// Replace the following statement with your code
-        name = name.toLowerCase();
         int count = 0; 
+        if (name != null) {
+        name = name.toLowerCase();
         for(int i = 0; i< users.length; i++){
             if (this.users[i] != null && this.users[i].follows(name)) {
                 count++;
             }
         }
+    }
         return count;
     }
 

@@ -79,7 +79,7 @@
         for(int i=0; i< follows.length; i++){
             if (follows[i] != null && follows[i].toLowerCase().equals(name)) {
                 follows[i] = null;
-                fCount --;
+                //fCount --;
                 return true;
             }
         }
