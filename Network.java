@@ -154,9 +154,11 @@ public class Network {
         new_str = new_str + this.users[i].getName() + "-> ";
         for(int j = 0; j<this.users[i].getfFollows().length; j++){
             if(this.users[i].getfFollows()[j] != null){
-            new_str = new_str +"n/" + this.users[i].getfFollows()[j] + "n/";}
+            new_str = new_str +"/n" + this.users[i].getfFollows()[j] + "/n";}
+           
         }
        }
+       System.out.println(new_str);
        return new_str;
     }
 }
