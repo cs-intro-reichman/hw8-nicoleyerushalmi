@@ -46,16 +46,16 @@ public class Network {
     public boolean addUser(String name) {
         //// Replace the following statement with your code
         //name = name.toLowerCase();
-        for(int i =0; i< users.length; i++){
-            if (this.users[i] != null) {
-                if (getUser(name) == null) {
-                    this.users[i] = new User(name);
-                    userCount++;
-                    return true;
+        if (name != null) {
+        // for(int i =0; i< users.length; i++){
+        //     if (this.users[i] != null) {
+                if (getUser(name) != null || userCount>=users.length) {
+                    return false;
                 }
+                users[userCount] = new User(name);
+                userCount++;
             }
-        }
-            return false;
+            return true;
         }
 
     /** Makes the user with name1 follow the user with name2. If successful, returns true.
