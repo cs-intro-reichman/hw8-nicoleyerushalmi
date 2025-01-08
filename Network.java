@@ -149,12 +149,12 @@ public class Network {
     public String toString() {
        //// Replace the following statement with your code
        System.out.println("network: ");
-       String new_str ="Network:";
+       String new_str ="Network: ";
        for(int i = 0; i< userCount;i++){
         new_str = new_str + this.users[i].getName() + "-> ";
         for(int j = 0; j<this.users[i].getfFollows().length; j++){
             if(this.users[i].getfFollows()[j] != null){
-            new_str = new_str +"n/" + this.users[i].getfFollows()[j] + "";}
+            new_str = new_str +"/n" + this.users[i].getfFollows()[j];}
         }
        }
        return new_str;
