@@ -75,6 +75,7 @@
     public boolean removeFollowee(String name) {
         //// Replace the following statement with your code
         name = name.toLowerCase();
+        if (name != null) {
         for(int i=0; i< follows.length; i++){
             if (follows[i] != null && follows[i].toLowerCase().equals(name)) {
                 follows[i] = null;
@@ -82,6 +83,7 @@
                 return true;
             }
         }
+    }
         return false;
     }
 
