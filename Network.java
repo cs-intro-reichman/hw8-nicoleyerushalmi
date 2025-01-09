@@ -160,7 +160,7 @@ public class Network {
         new_str = new_str + "\n"+this.users[i].getName() + " -> ";
         for(int j = 0; j<this.users[i].getfFollows().length; j++){
             if(this.users[i].getfFollows()[j] != null){
-            new_str = new_str + this.users[i].getfFollows()[j];}
+            new_str = new_str + this.users[i].getfFollows()[j] + " ";}
            
         }
        }
