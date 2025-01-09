@@ -116,7 +116,7 @@ public class Network {
     /** Computes and returns the name of the most popular user in this network: 
      *  The user who appears the most in the follow lists of all the users. */
     public String mostPopularUser() {
-        //// Replace the following statement with your code
+        //// Replace the following statement with your code1
         int max = 0;
         String name = null;
         for(int i = 0; i<userCount; i++){
