@@ -155,7 +155,7 @@ public class Network {
     public String toString() {
        //// Replace the following statement with your code2
        //System.out.println("network: ");
-       String new_str ="Network:" + "\n";
+       String new_str ="Network:";
        for(int i = 0; i< userCount;i++){
         new_str = new_str + "\n"+this.users[i].getName() + " -> ";
         for(int j = 0; j<this.users[i].getfFollows().length; j++){
