@@ -74,12 +74,13 @@
      *  If the name is not in the list, does nothing and returns false. */
     public boolean removeFollowee(String name) {
         //// Replace the following statement with your code
-        name = name.toLowerCase();
+        
         if (name != null) {
+        name = name.toLowerCase();
         for(int i=0; i< follows.length; i++){
             if (follows[i] != null && follows[i].toLowerCase().equals(name)) {
                 follows[i] = null;
-                //fCount --;
+                fCount --;
                 return true;
             }
         }
