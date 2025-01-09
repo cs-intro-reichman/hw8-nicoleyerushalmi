@@ -21,6 +21,11 @@ public class Network {
         users[2] = new User("Baz");
         userCount = 3;
     }
+    public String correctName(String name){
+        String new_name = "";
+        new_name = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
+        return new_name;
+    }
 
     public int getUserCount() {
         return this.userCount;
@@ -32,16 +37,16 @@ public class Network {
         //// Replace the following statement with your codee
         
         if (name != null) {
-            name = name.toLowerCase();
+            name = correctName(name);
         for(int i=0; i<users.length; i++){
-            if (this.users[i] != null && this.users[i].getName().toLowerCase().equals(name)) {
+            if (this.users[i] != null && correctName(this.users[i].getName()).equals(name)) {
                 return this.users[i];
             }
         }
     }
         return null;
     }
-
+  
     /** Adds a new user with the given name to this network.
     *  If ths network is full, does nothing and returns false;
     *  If the given name is already a user in this network, does nothing and returns false;
@@ -70,8 +75,8 @@ public class Network {
     public boolean addFollowee(String name1, String name2) {
         //// Replace the following statement with your code
         if (name1 != null && name2 != null) {
-        name1 = name1.toLowerCase();
-        name2 = name2.toLowerCase();
+        name1 = correctName(name1);
+        name2 = correctName(name2);
         User user1 = getUser(name1);
         User user2 = getUser(name2);
         if (user1 != null && user2 != null && user1 != user2) {
@@ -136,7 +141,7 @@ public class Network {
         //// Replace the following statement with your code
         int count = 0; 
         if (name != null) {
-        name = name.toLowerCase();
+        name = correctName(name);
         for(int i = 0; i< users.length; i++){
             if (this.users[i] != null && this.users[i].follows(name)) {
                 count++;

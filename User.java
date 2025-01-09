@@ -40,13 +40,18 @@
     public int getfCount() {
         return fCount;
     }
+    public String correctName1(String name){
+        String new_name = "";
+        new_name = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
+        return new_name;
+    }
 
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
         //// Replace the following statement with your code
-        name = name.toLowerCase();
+        name = correctName1(name);
         for(int i = 0; i< follows.length; i++){
-            if (follows[i] != null && follows[i].toLowerCase().equals(name)) {
+            if (follows[i] != null && correctName1(follows[i]).equals(name)) {
                 return true;
             }
         }
@@ -56,7 +61,7 @@
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
         //// Replace the following statement with your code
-        name = name.toLowerCase();
+        name = correctName1(name);
         for(int j = 0; j < follows.length; j++){
             if (follows[j] == null) {
                 if (!follows(name)) {
@@ -76,9 +81,9 @@
         //// Replace the following statement with your code
         
         if (name != null) {
-        name = name.toLowerCase();
+        name = correctName1(name);
         for(int i=0; i< follows.length; i++){
-            if (follows[i] != null && follows[i].toLowerCase().equals(name)) {
+            if (follows[i] != null && correctName1(follows[i]).equals(name)) {
                 follows[i] = null;
                 fCount --;
                 return true;
@@ -96,7 +101,7 @@
          for(int i = 0; i< follows.length; i++){
             for(int j = 0; j < other.follows.length; j++){
                 if (other.follows[j] != null) {
-                if (follows[i] != null && follows[i].toLowerCase().equals(other.follows[j].toLowerCase())) {
+                if (follows[i] != null && correctName1(follows[i]).equals(correctName1(other.follows[j]))) {
                     count++;
                 }
             }
