@@ -157,7 +157,7 @@ public class Network {
        //System.out.println("network: ");
        String new_str ="Network:";
        for(int i = 0; i< userCount;i++){
-        new_str = new_str + this.users[i].getName() + " -> ";
+        new_str = "\n"+new_str + " "+ "\n"+this.users[i].getName() + " -> ";
         for(int j = 0; j<this.users[i].getfFollows().length; j++){
             if(this.users[i].getfFollows()[j] != null){
             new_str ="\n" + new_str + "\n" + this.users[i].getfFollows()[j];}
